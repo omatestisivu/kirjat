@@ -1,13 +1,14 @@
+const people = ['tesla', 'jobs', 'curie', 'altman'];
+
 function toggleAudio(person) {
-    const ids = ['tesla', 'jobs', 'curie'];
     const targetAudio = document.getElementById(`audio-${person}`);
     const targetBtn = document.getElementById(`btn-${person}`);
 
-    // Pysäytä muut soittimet
-    ids.forEach(id => {
-        const a = document.getElementById(`audio-${id}`);
-        const b = document.getElementById(`btn-${id}`);
-        if (id !== person && !a.paused) {
+    // Pysäytetään kaikki muut ja nollataan niiden kuvakkeet
+    people.forEach(p => {
+        const a = document.getElementById(`audio-${p}`);
+        const b = document.getElementById(`btn-${p}`);
+        if (p !== person) {
             a.pause();
             b.innerText = "▶";
         }
@@ -15,32 +16,30 @@ function toggleAudio(person) {
 
     if (targetAudio.paused) {
         targetAudio.play();
-        targetBtn.innerText = "II"; // Tauko-symboli
+        targetBtn.innerText = "II";
     } else {
         targetAudio.pause();
         targetBtn.innerText = "▶";
     }
 
-    // Päivitä edistymispalkki
+    // Päivitetään edistymispalkki vain sille, joka soi
     targetAudio.ontimeupdate = () => {
         const progress = (targetAudio.currentTime / targetAudio.duration) * 100;
         document.getElementById(`bar-${person}`).style.width = progress + "%";
     };
 
-    // Kun loppuu
+    // Kun tiedosto loppuu
     targetAudio.onended = () => {
         targetBtn.innerText = "▶";
         document.getElementById(`bar-${person}`).style.width = "0%";
     };
 }
 
-// Mahdollisuus kelaa klikkaamalla raitaa
 function seek(event, person) {
     const audio = document.getElementById(`audio-${person}`);
     const container = event.currentTarget;
     const rect = container.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const width = rect.width;
-    const percentage = x / width;
-    audio.currentTime = percentage * audio.duration;
+    audio.currentTime = (x / width) * audio.duration;
 }
