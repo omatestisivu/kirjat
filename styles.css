@@ -42,7 +42,7 @@ h2 {
 
 .progress-container {
     width: 100%;
-    height: 1px; /* Erittäin ohut ja tyylikäs viiva */
+    height: 1px;
     background: #222;
     cursor: pointer;
 }
