@@ -56,6 +56,18 @@
             <button onclick="toggleAudio('altman')" class="play-btn" id="btn-altman">▶</button>
             <audio id="audio-altman" src="sam-altman.mp3"></audio>
         </div>
+
+        <div class="book-row">
+            <div class="number">5</div>
+            <div class="info">
+                <h2>Mark Zuckerberg</h2>
+                <div class="progress-container" onclick="seek(event, 'zuckerberg')">
+                    <div class="progress-bar" id="bar-zuckerberg"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('zuckerberg')" class="play-btn" id="btn-zuckerberg">▶</button>
+            <audio id="audio-zuckerberg" src="mark-zuckerberg.mp3"></audio>
+        </div>
     </div>
 
     <script src="script.js"></script>
