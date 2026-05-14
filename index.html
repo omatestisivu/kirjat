@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikola Tesla - Äänikirja</title>
+    <title>Äänikirjat - Tesla & Jobs</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="player-card">
-        <div class="tesla-icon">⚡</div>
-        <h1>Nikola Tesla</h1>
-        <p class="status" id="statusText">Valmis toistoon</p>
+    <div class="wrapper">
+        <div class="player-card">
+            <div class="icon">⚡</div>
+            <h1>Nikola Tesla</h1>
+            <p class="status" id="status-tesla">Valmis toistoon</p>
+            <audio id="audio-tesla" src="nikola-tesla.mp3"></audio>
+            <button onclick="toggleAudio('tesla')" class="play-button" id="btn-tesla">Aloita kuuntelu</button>
+        </div>
 
-        <audio id="audiobook" src="nikola-tesla.mp3"></audio>
-        
-        <button id="toggleBtn" class="play-button">
-            <span id="btnText">Aloita kuuntelu</span>
-        </button>
+        <div class="player-card">
+            <div class="icon">🍎</div>
+            <h1>Steve Jobs</h1>
+            <p class="status" id="status-jobs">Valmis toistoon</p>
+            <audio id="audio-jobs" src="steve-jobs.mp3"></audio>
+            <button onclick="toggleAudio('jobs')" class="play-button" id="btn-jobs">Aloita kuuntelu</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
