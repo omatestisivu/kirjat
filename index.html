@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Tesla - Äänikirja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="player-card">
+        <div class="tesla-icon">⚡</div>
+        <h1>Nikola Tesla</h1>
+        <p class="status" id="statusText">Valmis toistoon</p>
+
+        <audio id="audiobook" src="nikola-tesla.mp3"></audio>
+        
+        <button id="toggleBtn" class="play-button">
+            <span id="btnText">Aloita kuuntelu</span>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
