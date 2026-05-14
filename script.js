@@ -1,4 +1,4 @@
-const people = ['tesla', 'jobs', 'curie', 'altman', 'zuckerberg'];
+const people = ['tesla', 'jobs', 'curie', 'altman', 'zuckerberg', 'krkic'];
 
 function toggleAudio(person) {
     const targetAudio = document.getElementById(`audio-${person}`);
