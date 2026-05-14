@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Audio Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -67,6 +68,18 @@
             </div>
             <button onclick="toggleAudio('zuckerberg')" class="play-btn" id="btn-zuckerberg">▶</button>
             <audio id="audio-zuckerberg" src="mark-zuckerberg.mp3"></audio>
+        </div>
+
+        <div class="book-row">
+            <div class="number">6</div>
+            <div class="info">
+                <h2>Bojan Krkić</h2>
+                <div class="progress-container" onclick="seek(event, 'krkic')">
+                    <div class="progress-bar" id="bar-krkic"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('krkic')" class="play-btn" id="btn-krkic">▶</button>
+            <audio id="audio-krkic" src="bojan-krkic.mp3"></audio>
         </div>
     </div>
 
