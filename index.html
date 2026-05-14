@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Äänikirjasto</title>
+    <title>Audio Library</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="library">
-        <div class="book-row" id="row-1">
+        <div class="book-row">
             <div class="number">1</div>
             <div class="info">
                 <h2>Nikola Tesla</h2>
@@ -21,7 +21,7 @@
             <audio id="audio-tesla" src="nikola-tesla.mp3"></audio>
         </div>
 
-        <div class="book-row" id="row-2">
+        <div class="book-row">
             <div class="number">2</div>
             <div class="info">
                 <h2>Steve Jobs</h2>
@@ -33,7 +33,7 @@
             <audio id="audio-jobs" src="steve-jobs.mp3"></audio>
         </div>
 
-        <div class="book-row" id="row-3">
+        <div class="book-row">
             <div class="number">3</div>
             <div class="info">
                 <h2>Marie Curie</h2>
@@ -43,6 +43,18 @@
             </div>
             <button onclick="toggleAudio('curie')" class="play-btn" id="btn-curie">▶</button>
             <audio id="audio-curie" src="marie-curie.mp3"></audio>
+        </div>
+
+        <div class="book-row">
+            <div class="number">4</div>
+            <div class="info">
+                <h2>Sam Altman</h2>
+                <div class="progress-container" onclick="seek(event, 'altman')">
+                    <div class="progress-bar" id="bar-altman"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('altman')" class="play-btn" id="btn-altman">▶</button>
+            <audio id="audio-altman" src="sam-altman.mp3"></audio>
         </div>
     </div>
 
