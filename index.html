@@ -3,26 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Äänikirjoja</title>
+    <title>Äänikirjasto</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="player-card">
-            <div class="icon">⚡</div>
-            <h1>Nikola Tesla</h1>
-            <p class="status" id="status-tesla">Valmis toistoon</p>
+    <div class="library">
+        <div class="book-row" id="row-1">
+            <div class="number">1</div>
+            <div class="info">
+                <h2>Nikola Tesla</h2>
+                <div class="progress-container" onclick="seek(event, 'tesla')">
+                    <div class="progress-bar" id="bar-tesla"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('tesla')" class="play-btn" id="btn-tesla">▶</button>
             <audio id="audio-tesla" src="nikola-tesla.mp3"></audio>
-            <button onclick="toggleAudio('tesla')" class="play-button" id="btn-tesla">Aloita kuuntelu</button>
         </div>
 
-        <div class="player-card">
-            <div class="icon">🍎</div>
-            <h1>Steve Jobs</h1>
-            <p class="status" id="status-jobs">Valmis toistoon</p>
+        <div class="book-row" id="row-2">
+            <div class="number">2</div>
+            <div class="info">
+                <h2>Steve Jobs</h2>
+                <div class="progress-container" onclick="seek(event, 'jobs')">
+                    <div class="progress-bar" id="bar-jobs"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('jobs')" class="play-btn" id="btn-jobs">▶</button>
             <audio id="audio-jobs" src="steve-jobs.mp3"></audio>
-            <button onclick="toggleAudio('jobs')" class="play-button" id="btn-jobs">Aloita kuuntelu</button>
+        </div>
+
+        <div class="book-row" id="row-3">
+            <div class="number">3</div>
+            <div class="info">
+                <h2>Marie Curie</h2>
+                <div class="progress-container" onclick="seek(event, 'curie')">
+                    <div class="progress-bar" id="bar-curie"></div>
+                </div>
+            </div>
+            <button onclick="toggleAudio('curie')" class="play-btn" id="btn-curie">▶</button>
+            <audio id="audio-curie" src="marie-curie.mp3"></audio>
         </div>
     </div>
 
