@@ -1,10 +1,10 @@
-const people = ['tesla', 'jobs', 'curie', 'altman'];
+const people = ['tesla', 'jobs', 'curie', 'altman', 'zuckerberg'];
 
 function toggleAudio(person) {
     const targetAudio = document.getElementById(`audio-${person}`);
     const targetBtn = document.getElementById(`btn-${person}`);
 
-    // Pysäytetään kaikki muut ja nollataan niiden kuvakkeet
+    // Pysäytetään kaikki muut
     people.forEach(p => {
         const a = document.getElementById(`audio-${p}`);
         const b = document.getElementById(`btn-${p}`);
@@ -22,13 +22,13 @@ function toggleAudio(person) {
         targetBtn.innerText = "▶";
     }
 
-    // Päivitetään edistymispalkki vain sille, joka soi
+    // Päivitetään raita
     targetAudio.ontimeupdate = () => {
         const progress = (targetAudio.currentTime / targetAudio.duration) * 100;
         document.getElementById(`bar-${person}`).style.width = progress + "%";
     };
 
-    // Kun tiedosto loppuu
+    // Kun loppuu
     targetAudio.onended = () => {
         targetBtn.innerText = "▶";
         document.getElementById(`bar-${person}`).style.width = "0%";
