@@ -1,22 +1,40 @@
-const audio = document.getElementById('audiobook');
-const toggleBtn = document.getElementById('toggleBtn');
-const btnText = document.getElementById('btnText');
-const statusText = document.getElementById('statusText');
+function toggleAudio(person) {
+    const teslaAudio = document.getElementById('audio-tesla');
+    const jobsAudio = document.getElementById('audio-jobs');
+    
+    const targetAudio = person === 'tesla' ? teslaAudio : jobsAudio;
+    const otherAudio = person === 'tesla' ? jobsAudio : teslaAudio;
+    
+    const targetBtn = document.getElementById(`btn-${person}`);
+    const targetStatus = document.getElementById(`status-${person}`);
 
-toggleBtn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play();
-        btnText.innerText = "Pysäytä";
-        statusText.innerText = "Toistetaan äänikirjaa...";
-    } else {
-        audio.pause();
-        btnText.innerText = "Jatka kuuntelua";
-        statusText.innerText = "Keskeytetty";
+    // Pysäytetään se toinen, jos se on päällä
+    if (!otherAudio.paused) {
+        otherAudio.pause();
+        resetUI();
     }
-});
 
-// Kun äänikirja loppuu luonnostaan
-audio.onended = () => {
-    btnText.innerText = "Aloita alusta";
-    statusText.innerText = "Äänikirja päättyi";
-};
+    if (targetAudio.paused) {
+        targetAudio.play();
+        targetBtn.innerText = "Pysäytä";
+        targetStatus.innerText = "Toistetaan...";
+    } else {
+        targetAudio.pause();
+        targetBtn.innerText = "Jatka kuuntelua";
+        targetStatus.innerText = "Keskeytetty";
+    }
+
+    // Automaattinen lopetus kun tiedosto loppuu
+    targetAudio.onended = () => {
+        targetBtn.innerText = "Aloita alusta";
+        targetStatus.innerText = "Äänikirja päättyi";
+    };
+}
+
+function resetUI() {
+    // Palautetaan nappien tekstit alkutilaan jos ne keskeytettiin toisen toimesta
+    document.getElementById('btn-tesla').innerText = "Jatka kuuntelua";
+    document.getElementById('status-tesla').innerText = "Keskeytetty";
+    document.getElementById('btn-jobs').innerText = "Jatka kuuntelua";
+    document.getElementById('status-jobs').innerText = "Keskeytetty";
+}
